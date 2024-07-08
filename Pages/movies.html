@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="icon" href="../RecursosMoviestack/Moviestack_faviconpaint.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../Styles/styles.css" />
+    <link rel="stylesheet" href="../Styles/circuloAnimadoMovies.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body class="fondoMain">
+    <header class="fondoGradient">
+        <div
+          class="w-full h-auto border border-black flex flex-row justify-between flex-wrap"
+        >
+          <div class="flex flex-row w-[400px] h-auto items-center">
+            <div
+              id="fondoLogo"
+              class="w-[85px] h-[85px] border border-black rounded-full ml-4 my-3"
+            >
+              <img
+                class="w-32 h-auto"
+                src="../RecursosMoviestack/isotipoPS.png"
+                alt=""
+              />
+            </div>
+            <h1 class="bebas-neue ml-3 text-white">MOVIESTaCK</h1>
+          </div>
+          <nav class="flex flex-row items-center">
+            <a class="raleway" href="../index.html">HOME</a>
+            <a class="raleway" href="#">MOVIES</a>
+            <a class="raleway" href="">FAVS</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <div class="w-full mb-[129px] flex flex-row justify-evenly">
+            <div class="crcl-animate">
+                <a class="movies" href="">MOVIES</a>
+              </div>
+          </div>
+
+        <!-- <div class="w-full h-[100px] flex flex-row justify-center items-center">
+            <div class="w-[90%] text-center border border-black">
+                <h1 class="text-[30px] text-white">MOVIES</h1>
+            </div>
+        </div> -->
+
+        <div id="contenedor">
+            <!-- Aqui van las cards -->
+
+        </div>
+      </main>
+
+      <footer id="footerMovies" class="fondoGradient">
+        <div class="w-full h-[113px]  flex flex-row justify-center items-center">
+            <p class="text-white text-3xl inline-block">MindHub - Cohort 55</p>
+        </div>
+    </footer>
+
+
+    <script type="module" src="../ArchivosJS/movies.js"></script>
+</body>
+</html>
