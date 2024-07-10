@@ -2,11 +2,11 @@ import { movies } from "./data.js";
 
 console.log(movies[0].id)
 
-// 5. Crear un div dentro del main y agregarle el id "contenedor". Capturar ese div por medio de su id. 
+//Crear un div dentro del main y agregarle el id "contenedor". Capturar ese div por medio de su id. 
 let contenedor = document.getElementById("contenedor")
 contenedor.classList.add("w-full", "flex", "flex-row", "flex-wrap", "place-content-around", "p-8")
 
-// Paso 6: Función que devuelve la estructura de una card
+//Función que devuelve la estructura de una card
 function crearCard(foto, title, tagline, descripcion)
 {
     return `
@@ -20,7 +20,7 @@ function crearCard(foto, title, tagline, descripcion)
     `
 }
 
-// Paso 7 y 8: Bucle para crear cards con los datos de las frutas y mostrarlas en el div "#contenedor"
+//Bucle para crear cards con los datos de las frutas y mostrarlas en el div "#contenedor"
 function mostrarCards()
 {
     let cardsHTML = ""
