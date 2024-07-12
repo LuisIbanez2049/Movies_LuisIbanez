@@ -32,3 +32,5 @@ function mostrarCards()
 
 // Llamar a la función para mostrar las cards
 mostrarCards(movies)
+
+// ------------------------------------------------AGREGAR FUNCION DE FILTRADO PPOR NOMBRE Y GENERO-----------------------------------------------------
