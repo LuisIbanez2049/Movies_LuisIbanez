@@ -1,36 +1,103 @@
+
 import { movies } from "./data.js";
 
-console.log(movies[0].id)
+// Crear un div dentro del main y agregarle el id "contenedor". Capturar ese div por medio de su id. 
+let contenedor = document.getElementById("contenedor");
+contenedor.classList.add("w-full", "flex", "flex-row", "flex-wrap", "place-content-around", "p-8");
 
-// 5. Crear un div dentro del main y agregarle el id "contenedor". Capturar ese div por medio de su id. 
-let contenedor = document.getElementById("contenedor")
-contenedor.classList.add("w-full", "flex", "flex-row", "flex-wrap", "place-content-around", "p-8")
-
-// Paso 6: Función que devuelve la estructura de una card
-function crearCard(foto, title, tagline, descripcion)
-{
+// Función que devuelve la estructura de una card
+function crearCard(objeto) {
     return `
-           <div id="card" class="border border-black p-4 flex flex-col items-center w-96 h-auto mt-5 ml-7 text-white
-                    rounded-3xl transition duration-300 transform hover:-translate-y-2 hover:bg-slate-300">
-                <img class="w-72 h-auto my-3 rounded-3xl" src="${foto}" alt="${title}">
-                <h1 class = "font-bold">${title}</h1>
-                <h2 class = "text-start" >${tagline}</h2>
-                <p class = "text-start" >${descripcion}</p>
-            </div>
-    `
+        <div id="card" class="border border-black p-4 flex flex-col items-center w-96 h-auto mt-5 ml-7 text-white
+                rounded-3xl transition duration-300 transform hover:-translate-y-2 hover:bg-slate-300">
+                <a href="../Pages/descripcionDePelicula.html?id=${objeto.id}">
+                  <img class="w-72 h-auto my-3 rounded-3xl" src="${objeto.image}" alt="${objeto.title}">
+                  <h1 class="font-bold">${objeto.title}</h1>
+                  <h2 class="text-start">${objeto.tagline}</h2>
+                  <p class="text-start">${objeto.overview}</p>
+                   <p class="text-start text-[#ffd500]">Genre: ${objeto.genres}</p>
+                </a>
+        </div>
+        
+    `;
 }
 
-// Paso 7 y 8: Bucle para crear cards con los datos de las frutas y mostrarlas en el div "#contenedor"
-function mostrarCards()
-{
-    let cardsHTML = ""
-    movies.forEach(movie => {
-        cardsHTML += crearCard(movie.image, movie.title, movie.tagline, movie.overview)
-    })
-    contenedor.innerHTML = cardsHTML
+// Bucle para crear cards con los datos de las películas y mostrarlas en el div "#contenedor"
+function mostrarCards(array) {
+    let cardsHTML = "";
+    array.forEach(element => {
+        // cardsHTML += crearCard(element.image, element.title, element.tagline, element.overview);
+        cardsHTML += crearCard(element)
+    });
+    contenedor.innerHTML = cardsHTML;
 }
 
-// Llamar a la función para mostrar las cards
-mostrarCards(movies)
+// Mostrar todas las películas inicialmente
+mostrarCards(movies);
 
-// ------------------------------------------------AGREGAR FUNCION DE FILTRADO PPOR NOMBRE Y GENERO-----------------------------------------------------
+// Función para obtener todos los géneros sin duplicados
+function arrayDeGeneros(array) {
+    let todosLosGeneros = [];
+    array.forEach(objeto => {
+        todosLosGeneros.push(objeto.genres);
+    });
+    return Array.from(new Set(todosLosGeneros.flat()));
+}
+
+// Función para agregar opciones de género al selector
+function agregarOpcionesDeGenero(array, contenedorHTML) {
+    array.forEach(genero => {
+        let opcion = document.createElement("option");
+        opcion.textContent = genero;
+        opcion.value = genero;
+        contenedorHTML.appendChild(opcion);
+    });
+}
+
+// Capturar el selector de género y el input de título
+const selectorDeGenero = document.querySelector("#selectorDeGenero");
+const inputTitulo = document.querySelector("#filtrarTitulo");
+
+// Agregar opciones de género al selector
+agregarOpcionesDeGenero(arrayDeGeneros(movies), selectorDeGenero);
+
+// Función para filtrar películas por género
+function filtrarPorGenero(array) {
+    const generoSeleccionado = selectorDeGenero.value;
+    if (generoSeleccionado === "all") {
+        return array;
+    } else {
+        return array.filter(movie => movie.genres.includes(generoSeleccionado));
+    }
+}
+
+// Función para filtrar películas por título
+function filtrarPorTitulo(array) {
+    const tituloIngresado = inputTitulo.value.toLowerCase();
+    return array.filter(movie => movie.title.toLowerCase().includes(tituloIngresado));
+}
+
+// Función para aplicar ambos filtros
+function filctrosCruzados(array) {
+    // let peliculasFiltradas = array;
+    
+    // Aplicar filtro de género
+    let peliculasFiltradas = filtrarPorGenero(array);
+    
+    // Aplicar filtro de título
+    peliculasFiltradas = filtrarPorTitulo(peliculasFiltradas);
+    
+    // Mostrar las películas filtradas
+    if (peliculasFiltradas.length > 0) {
+        mostrarCards(peliculasFiltradas);
+    } else {
+        contenedor.innerHTML = `
+            <div class="w-full text-center">
+                <h1 class="text-[40px] text-[#F00000] font-bold">PELICULA NO ENCONTRADA</h1>
+            </div>`;
+    }
+}
+
+// Agregar eventos para ejecutar los filtros cruzados
+selectorDeGenero.addEventListener("change", () => filctrosCruzados(movies));
+inputTitulo.addEventListener("input", () => filctrosCruzados(movies));

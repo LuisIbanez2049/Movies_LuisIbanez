@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Descrption</title>
+    <link rel="icon" href="../RecursosMoviestack/Moviestack_faviconpaint.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../Styles/styles.css" />
+    <link rel="stylesheet" href="../Styles/circuloAnimadoMovies.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="fondoMain">
+    <header class="fondoGradient">
+      <div
+        class="w-full h-auto border border-black flex flex-row justify-between flex-wrap"
+      >
+        <div class="flex flex-row w-[400px] h-auto items-center">
+          <div
+            id="fondoLogo"
+            class="w-[85px] h-[85px] border border-black rounded-full ml-4 my-3"
+          >
+            <img
+              class="w-32 h-auto"
+              src="../RecursosMoviestack/isotipoPS.png"
+              alt=""
+            />
+          </div>
+          <h1 class="bebas-neue ml-3 text-white">MOVIESTaCK</h1>
+        </div>
+        <nav class="flex flex-row items-center">
+          <a class="raleway" id="buttonBack" href="../Pages/movies.html"
+            >&#9664;BACK</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main>
+      <!-- <img class="w-[500px]" src="" alt=""> -->
+       <div class=" w-full flex flex-row justify-evenly flex-wrap mt-[40px]">
+        <div id="contenedorImagen" class="w-[50%]"></div>
+
+        <div id="contenedorDescripcion" class="w-[45%] ">
+        </div>
+       </div>
+       <div id="contenedorTablabas" class=" w-full flex flex-row justify-evenly mt-[40px] mb-12">
+        <div id="contenedorTablaIzquierda" class="w-[50%]">
+            <table class="table-auto  w-[100%]">
+                <tbody id="tableBody" class="text-[25px]">
+                    <tr>
+                        <td class="text-white px-5 border-2 border-[#01c4e7] font-bold ">Original Lenguage</td>
+                        <td id="td1" class="text-white px-5 border-2 border-[#01c4e7] italic"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-white px-5 border-2 border-[#01c4e7] font-bold">Release Date</td>
+                        <td id="td2" class="text-white px-5 border-2 border-[#01c4e7] italic"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-white px-5 border-2 border-[#01c4e7] font-bold">Runtime</td>
+                        <td id="td3" class="text-white px-5 border-2 border-[#01c4e7] italic"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-white px-5 border-2 border-[#01c4e7] font-bold">Status</td>
+                        <td id="td4" class="text-white px-5 border-2 border-[#01c4e7] italic"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="contenedorTablaDerecha" class="w-[45%] ">
+            <table class="table-auto  w-[100%]">
+                <tbody id="tableBody" class="text-[25px]">
+                    <tr>
+                        <td class="text-white px-5 border-2 border-[#01c4e7] font-bold">Vote Avarage</td>
+                        <td id="td5" class="text-white px-5 border-2 border-[#01c4e7] italic"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-white px-5 border-2 border-[#01c4e7] font-bold">Budget</td>
+                        <td id="td6" class="text-white px-5 border-2 border-[#01c4e7] italic"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-white px-5 border-2 border-[#01c4e7] font-bold">Revenue</td>
+                        <td id="td7" class="text-white px-5 border-2 border-[#01c4e7] italic"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+       </div>
+    </main>
+    <footer id="footerMovies" class="fondoGradient">
+      <div class="w-full h-[113px] flex flex-row justify-center items-center">
+        <p class="text-white text-3xl inline-block">MindHub - Cohort 55</p>
+      </div>
+    </footer>
+    <script type="module" src="../ArchivosJS/descripcionDePelicula.js"></script>
+  </body>
+</html>
