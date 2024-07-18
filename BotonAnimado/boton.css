@@ -20,7 +20,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background-color: #10e3fa;
+    background-color: #d9ff00;
     pointer-events: none;
     animation: particle-animation 1.3s forwards;
 }
