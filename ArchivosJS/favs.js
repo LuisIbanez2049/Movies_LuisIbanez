@@ -57,6 +57,17 @@ fetch('https://moviestack.onrender.com/api/movies', {
             </div>`;
     }
 
+    const botonReset = document.querySelector("#botonReset")
+    botonReset.addEventListener("click", () => {
+        let favoritos = []
+        localStorage.setItem('favoritos', JSON.stringify(favoritos));
+        mostrarCards(favoritos, contenedor)
+        contenedor.innerHTML = `
+            <div class="w-full text-center">
+                <h1 class="text-[40px] text-[#F00000] font-bold">THERE ARE NO FILMS</h1>
+            </div>`;
+    })
+
 })
 .catch(error => console.warn(error))
 .finally(() => console.log("finally is here"))
