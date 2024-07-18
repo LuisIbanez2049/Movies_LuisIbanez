@@ -48,7 +48,6 @@
 
 // }
 
-// // -----------------------------------------------------------------------------------------------------------------------------------
 // cargarDescripcion(peliculaEncontradaPorId, contenedorDescripcion)
 
 // function llenarTabla (objetoPeliculaEncontradaPorId)
@@ -86,10 +85,39 @@
 
 // -----------------------------------------------------------------------------------------------------------------------------------
 
-import { movies } from "../ArchivosJS/data.js"
-import { cargarImagen, cargarDescripcion, llenarTabla } from "../ArchivosJS/funcionesDescripcionDePeliculas.js"
+// import { movies } from "../ArchivosJS/data.js"
+// import { cargarImagen, cargarDescripcion, llenarTabla } from "../ArchivosJS/funcionesDescripcionDePeliculas.js"
 
-const contenedorImagen = document.querySelector("#contenedorImagen")
+// const contenedorImagen = document.querySelector("#contenedorImagen")
+// const contenedorDescripcion = document.querySelector("#contenedorDescripcion")
+// const urlParams = new URLSearchParams(window.location.search)
+// const movieId = urlParams.get("id") 
+// console.log(movieId)
+
+// let peliculaEncontradaPorId
+// for (let i = 0; i < movies.length; i++) {
+//     if (movies[i].id == movieId) {
+//         peliculaEncontradaPorId = movies[i]
+//     }
+// }
+
+// console.log(peliculaEncontradaPorId.title)
+
+// cargarImagen(peliculaEncontradaPorId, contenedorImagen)
+
+// cargarDescripcion(peliculaEncontradaPorId, contenedorDescripcion)
+
+// llenarTabla(peliculaEncontradaPorId)
+
+// -----------------------------------------------------------------------------------------------------------------------------------
+
+import { cargarImagen, cargarDescripcion, llenarTabla } from "../ArchivosJS/funcionesDescripcionDePeliculas.js"
+import { fetchMovies } from '../ArchivosJS/data.js';
+
+fetchMovies().then(movies => {
+    console.log(movies);
+    // Aquí puedes usar el array de películas
+    const contenedorImagen = document.querySelector("#contenedorImagen")
 const contenedorDescripcion = document.querySelector("#contenedorDescripcion")
 const urlParams = new URLSearchParams(window.location.search)
 const movieId = urlParams.get("id") 
@@ -109,3 +137,4 @@ cargarImagen(peliculaEncontradaPorId, contenedorImagen)
 cargarDescripcion(peliculaEncontradaPorId, contenedorDescripcion)
 
 llenarTabla(peliculaEncontradaPorId)
+});

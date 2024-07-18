@@ -1,0 +1,37 @@
+.button-container {
+    position: relative;
+    display: inline-block;
+}
+
+.particle-button {
+    position: relative;
+    /* padding: 10px 20px; */
+    /* border: 2px solid hsl(356, 100%, 50%); */
+    border-radius: 5px;
+    /* background-color: #2C3940; */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #10e3fa;
+    pointer-events: none;
+    animation: particle-animation 1.3s forwards;
+}
+
+@keyframes particle-animation {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y)) scale(2);
+    }
+}

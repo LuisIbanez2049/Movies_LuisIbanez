@@ -1,6 +1,6 @@
 function cargarImagen(objeto, contenedor)
 {
-    contenedor.innerHTML = `<img class="w-[100%] h-[100%] object-cover rounded-t-[50px]" src="${objeto.image}" alt="">`
+    contenedor.innerHTML = `<img class="w-[100%] h-[100%] object-cover rounded-t-[50px]" src="https://moviestack.onrender.com/static/${objeto.image}" alt="">`
 }
 
 function cargarDescripcion(objetoPeliculaEncontradaPorId, contenedorDeLaDescripcion)
