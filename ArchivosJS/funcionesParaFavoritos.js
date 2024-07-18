@@ -1,33 +1,12 @@
-// function creaCard(objetoPais) {
-//     const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-//     const imgSrc = favoritos.includes(objetoPais.pais) ? './corazonRojoLleno.png' : './corazonRojoVacio.png';
-//     return `
-//       <div id="card" class="border border-black w-[200px] h-[300px] mb-6">
-//         <h1 class="text-center text-[25px]">${objetoPais.pais}</h1>
-//         <p class="pl-4 text-[18px]">${objetoPais.descripcionDePais}</p>
-//         <button id="buttonCorazon" class="buttonCorazon">
-//           <img class="w-[60px] h-[60px]" src="${imgSrc}" alt="">
-//         </button>
-//       </div>       
-//     `;
-//   }
 
-//   function mostrarCards(arrayPaises, contenedorHTML) {
-//     let cardsGuardadas = "";
-//     arrayPaises.forEach(pais => {
-//       cardsGuardadas += creaCard(pais);
-//     });
-//     contenedorHTML.innerHTML = cardsGuardadas;
-//   }
-
-  function toggleFavorito(pais) {
+  function toggleFavorito(movieTitle) {
     let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
     
-    if (favoritos.includes(pais)) {
-      favoritos = favoritos.filter(fav => fav !== pais);
+    if (favoritos.includes(movieTitle)) {
+      favoritos = favoritos.filter(fav => fav !== movieTitle);
       console.log("FAVORITOS VERDADERO-----" + favoritos)
     } else {
-      favoritos.push(pais);
+      favoritos.push(movieTitle);
       console.log("FAVORITOS FALSO-----" + favoritos)
     }
 
@@ -35,25 +14,26 @@
     console.log(favoritos);
   }
 
-  function pintarBotones( pais ,button)
+  function pintarBotones( movieMovieTitle ,buttonSeleccionado)
   {
-    const img = button.querySelector('img');
-    let arrayPaisesFavoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-    if (arrayPaisesFavoritos.includes(pais)) {
-        console.log("FAVORITOS VERDADERO-----" + arrayPaisesFavoritos)
+    const img = buttonSeleccionado.querySelector('img');
+    // img almacena el objeto imagen para despues acceder a su propiedad src
+    let arrayMoviesFavoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    if (arrayMoviesFavoritos.includes(movieMovieTitle)) {
+        console.log("FAVORITOS VERDADERO-----" + arrayMoviesFavoritos)
         img.src = '../RecursosMoviestack/corazonRojoLleno.png'; // Imagen inicial
       } else {
-        console.log("FAVORITOS FALSO-----" + arrayPaisesFavoritos)
+        console.log("FAVORITOS FALSO-----" + arrayMoviesFavoritos)
         img.src = '../RecursosMoviestack/corazonRojoVacio.png'; // Imagen alterna
       }
   }
 
 
-  function filtrarFavoritos(arrayPaises) {
+  function filtrarFavoritos(arrayMovies) {
     const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
     //const paisesFavoritos = arrayPaises.filter(pais => favoritos.includes(pais.pais));
     // mostrarCards(paisesFavoritos, contenedorHTML);
-    return arrayPaises.filter(movie => favoritos.includes(movie.title));
+    return arrayMovies.filter(movie => favoritos.includes(movie.title));
   }
 
   //mostrarCards(paisesFavoritos, contenedorHTML);

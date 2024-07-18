@@ -29,13 +29,13 @@ inputTitulo.addEventListener("input", () => filctrosCruzados(movies, contenedor,
 
 //----------------NUEVO--------------------------------------------------------------------------------------------
 contenedor.addEventListener('click', function(event) {
-    if (event.target.closest('#buttonCorazon')) {
-      const button = event.target.closest('#buttonCorazon');
+    if (event.target.closest('#buttonCorazon')) { //verifica si el elemento mas cercano al que se le hizo clic tiene el id "buttonCorazon" 
+      const button = event.target.closest('#buttonCorazon'); // se defini la constante "button" la cual guarda la referencia del objeto mas cercano del DOM en donde se hizo clic  
       console.log("BUTTON------" + button)
-      const pais = button.closest('#card').querySelector('h1').innerText;
-      console.log("PAIS----" + pais)
-      toggleFavorito(pais);
-      pintarBotones(pais, button)
+      const movieTitle = button.closest('#card').querySelector('h1').innerText;// al elemento mas cercano que tenga la id "card" le quiero caputurar el contenido del elemento "h1"
+      console.log("TITLE----" + movieTitle)
+      toggleFavorito(movieTitle);
+      pintarBotones(movieTitle, button)
      // mostrarTodos()
     }
   });
