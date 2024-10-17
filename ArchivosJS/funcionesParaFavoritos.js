@@ -17,7 +17,7 @@
   function pintarBotones( movieMovieTitle ,buttonSeleccionado)
   {
     const img = buttonSeleccionado.querySelector('img');
-    // img almacena el objeto imagen para despues acceder a su propiedad src
+    // img almacena el objeto del DOM imagen para despues acceder a su propiedad src
     let arrayMoviesFavoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
     if (arrayMoviesFavoritos.includes(movieMovieTitle)) {
         console.log("FAVORITOS VERDADERO-----" + arrayMoviesFavoritos)
@@ -31,18 +31,11 @@
 
   function filtrarFavoritos(arrayMovies) {
     const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
-    //const paisesFavoritos = arrayPaises.filter(pais => favoritos.includes(pais.pais));
-    // mostrarCards(paisesFavoritos, contenedorHTML);
     return arrayMovies.filter(movie => favoritos.includes(movie.title));
   }
 
-  //mostrarCards(paisesFavoritos, contenedorHTML);
-  function mostrarFavoritos(arrayFiltrarFavoritos ,contenedorHTML)
-  {
-    mostrarCards(arrayFiltrarFavoritos, contenedorHTML)
-  }
 
 //  ---------------------------------------------------------------------------------------------------------
 
 
-  export {toggleFavorito, mostrarFavoritos, pintarBotones, filtrarFavoritos}
+  export {toggleFavorito, pintarBotones, filtrarFavoritos}

@@ -14,7 +14,7 @@
 // ".finally()" ?
 
 import { mostrarCards, crearCard} from "../ArchivosJS/funcionesMovies.js"
-import {toggleFavorito, mostrarFavoritos, pintarBotones, filtrarFavoritos} from "../ArchivosJS/funcionesParaFavoritos.js" 
+import {toggleFavorito, pintarBotones, filtrarFavoritos} from "../ArchivosJS/funcionesParaFavoritos.js" 
 const divCard = document.querySelector("#divCard")
 
 
@@ -43,9 +43,9 @@ fetch('https://moviestack.onrender.com/api/movies', {
         contenedor.addEventListener('click', function(event) {
             if (event.target.closest('#buttonCorazon')) {
               const button = event.target.closest('#buttonCorazon');
-              const pais = button.closest('#card').querySelector('h1').innerText;
-              toggleFavorito(pais, button);
-              pintarBotones(pais, button)
+              const movieTitle = button.closest('#card').querySelector('h1').innerText;
+              toggleFavorito(movieTitle);
+              pintarBotones(movieTitle, button)
             }
         });
     }

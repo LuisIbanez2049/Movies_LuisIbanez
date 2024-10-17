@@ -4,7 +4,7 @@
 
 import { fetchMovies } from '../ArchivosJS/data.js';
 import { crearCard, mostrarCards, arrayDeGeneros, agregarOpcionesDeGenero, filtrarPorGenero, filtrarPorTitulo, filctrosCruzados} from "../ArchivosJS/funcionesMovies.js"
-import {toggleFavorito, mostrarFavoritos, pintarBotones, filtrarFavoritos} from "../ArchivosJS/funcionesParaFavoritos.js"
+import {toggleFavorito, pintarBotones} from "../ArchivosJS/funcionesParaFavoritos.js"
 
 fetchMovies().then(movies => {
     console.log(movies);
@@ -28,11 +28,15 @@ selectorDeGenero.addEventListener("change", () => filctrosCruzados(movies, conte
 inputTitulo.addEventListener("input", () => filctrosCruzados(movies, contenedor, selectorDeGenero, inputTitulo));
 
 //----------------NUEVO--------------------------------------------------------------------------------------------
+
 contenedor.addEventListener('click', function(event) {
+  console.log(event.target)
     if (event.target.closest('#buttonCorazon')) { //verifica si el elemento mas cercano al que se le hizo clic tiene el id "buttonCorazon" 
-      const button = event.target.closest('#buttonCorazon'); // se defini la constante "button" la cual guarda la referencia del objeto mas cercano del DOM en donde se hizo clic  
+      const button = event.target.closest('#buttonCorazon'); // se defini la constante "button" la cual guarda la referencia del objeto mas 
+                                                            // cercano del DOM en donde se hizo clic  
       console.log("BUTTON------" + button)
-      const movieTitle = button.closest('#card').querySelector('h1').innerText;// al elemento mas cercano que tenga la id "card" le quiero caputurar el contenido del elemento "h1"
+      const movieTitle = button.closest('#card').querySelector('h1').innerText;// al elemento mas cercano que tenga la id "card" le quiero caputurar el 
+                                                                               // contenido del elemento "h1"
       console.log("TITLE----" + movieTitle)
       toggleFavorito(movieTitle);
       pintarBotones(movieTitle, button)
