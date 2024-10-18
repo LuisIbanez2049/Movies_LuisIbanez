@@ -13,22 +13,72 @@
 // ".catch()": dentro de este se va a programar lo que se va a hacer si la peticion fue erronea 
 // ".finally()" ?
 
+// import { mostrarCards, crearCard} from "../ArchivosJS/funcionesMovies.js"
+// import {toggleFavorito, pintarBotones, filtrarFavoritos} from "../ArchivosJS/funcionesParaFavoritos.js" 
+// const divCard = document.querySelector("#divCard")
+
+
+
+//  const API_KEY = '0ff70d54-dc0b-4262-9c3d-776cb0f34dbd'
+// fetch('https://moviestack.onrender.com/api/movies', { 
+//     method : 'GET',
+//     headers : {
+//         'x-api-key' : '0ff70d54-dc0b-4262-9c3d-776cb0f34dbd'
+//     }
+// })
+// .then(response => response.json())
+// .then(data => {
+//     let arrayDePeliculas = data.movies
+//     console.log(arrayDePeliculas)
+//     const contenedor = document.querySelector("#contenedor")
+
+//     let filtrados = filtrarFavoritos(arrayDePeliculas)
+
+//     if (filtrados.length > 0) {
+//         console.log("verdadero")
+
+//         console.log("---------------------FILTRADOS" + filtrados)
+//         mostrarCards(filtrarFavoritos(arrayDePeliculas), contenedor)
+//         console.log("cards-----" + mostrarCards)
+//         contenedor.addEventListener('click', function(event) {
+//             if (event.target.closest('#buttonCorazon')) {
+//               const button = event.target.closest('#buttonCorazon');
+//               const movieTitle = button.closest('#card').querySelector('h1').innerText;
+//               toggleFavorito(movieTitle);
+//               pintarBotones(movieTitle, button)
+//             }
+//         });
+//     }
+//     else{ 
+//         console.log("falso")
+//         contenedor.innerHTML = `
+//             <div class="w-full text-center">
+//                 <h1 class="text-[40px] text-[#F00000] font-bold">THERE ARE NO FILMS</h1>
+//             </div>`;
+//     }
+
+//     const botonReset = document.querySelector("#botonReset")
+//     botonReset.addEventListener("click", () => {
+//         let favoritos = []
+//         localStorage.setItem('favoritos', JSON.stringify(favoritos));
+//         mostrarCards(favoritos, contenedor)
+//         contenedor.innerHTML = `
+//             <div class="w-full text-center">
+//                 <h1 class="text-[40px] text-[#F00000] font-bold">THERE ARE NO FILMS</h1>
+//             </div>`;
+//     })
+
+// })
+// .catch(error => console.warn(error))
+// .finally(() => console.log("finally is here"))
+
 import { mostrarCards, crearCard} from "../ArchivosJS/funcionesMovies.js"
 import {toggleFavorito, pintarBotones, filtrarFavoritos} from "../ArchivosJS/funcionesParaFavoritos.js" 
 const divCard = document.querySelector("#divCard")
+import { movies } from "./data.js"
 
 
-
- const API_KEY = '0ff70d54-dc0b-4262-9c3d-776cb0f34dbd'
-fetch('https://moviestack.onrender.com/api/movies', { 
-    method : 'GET',
-    headers : {
-        'x-api-key' : '0ff70d54-dc0b-4262-9c3d-776cb0f34dbd'
-    }
-})
-.then(response => response.json())
-.then(data => {
-    let arrayDePeliculas = data.movies
+    let arrayDePeliculas = movies
     console.log(arrayDePeliculas)
     const contenedor = document.querySelector("#contenedor")
 
@@ -68,8 +118,6 @@ fetch('https://moviestack.onrender.com/api/movies', {
             </div>`;
     })
 
-})
-.catch(error => console.warn(error))
-.finally(() => console.log("finally is here"))
+
 
 
