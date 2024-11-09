@@ -77,7 +77,7 @@ background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, F
     box-shadow: 2px 2px 7px black;
 }
 
-.box{
+/* .box{
     width: 600px;
     height: 350px;
     color: #fff;
@@ -112,7 +112,7 @@ background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, F
     background: linear-gradient(0deg, #2196f3, #060c21, #F00000);
     border-radius: 5px;
     transition: 0.5s all linear;
-  }
+  } */
 
 
   .movies-favs

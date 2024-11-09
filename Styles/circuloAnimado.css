@@ -4,8 +4,8 @@
 .crcl-animate {
   position: relative;
   top: 5em;
-  width: 59vh;
-  height: 40vh;
+  /* width: 59vh;
+  height: 40vh; */
   border-radius: 100px;
   background: linear-gradient(to top right ,#001729, #012837);
   display: flex;

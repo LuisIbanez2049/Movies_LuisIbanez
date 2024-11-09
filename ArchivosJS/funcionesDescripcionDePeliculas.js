@@ -10,7 +10,7 @@ function cargarDescripcion(objetoPeliculaEncontradaPorId, contenedorDeLaDescripc
     const genres = document.createElement("p")
     const description = document.createElement("p")
 
-    title.className = "text-[50px] font-bold text-[#d6ebc1]"
+    title.className = "text-[35px] lg:text-[50px] font-bold text-[#d6ebc1]"
     title.setAttribute("id", "sombreadoTitulo")
     tagline.className = "text-[30px] font-bold text-white"
     genres.className = "text-[25px] font-bold text-white text-[#ffd500]"

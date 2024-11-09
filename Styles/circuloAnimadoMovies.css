@@ -1,8 +1,8 @@
 .crcl-animate {
     position: relative;
     top: 5em;
-    width: 121vh;
-    height: 10vh;
+    /* width: 121vh;
+    height: 10vh; */
     border-radius: 100px;
     background: linear-gradient(to top right ,#001729, #012837);
     display: flex;
@@ -47,7 +47,7 @@
   .movies
   {
     color: white;
-    font-size: 75px;
+    /* font-size: 75px; */
     font-family: "Bebas Neue", sans-serif;
     text-align: center;
     

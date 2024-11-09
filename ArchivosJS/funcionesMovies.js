@@ -3,10 +3,10 @@ function crearCard(objeto) {
     const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
     const imgSrc = favoritos.includes(objeto.title) ? '../RecursosMoviestack/corazonRojoLleno.png' : '../RecursosMoviestack/corazonRojoVacio.png';
     return `
-        <div id="card" class="border border-black p-4 flex flex-col items-center w-96 h-auto mt-5 ml-7 mb-[35px] text-white
+        <div id="card" class="border border-black p-4 flex flex-col items-center w-[95%] lg:w-96 h-auto mt-5  mb-[35px] text-white
                 rounded-3xl transition duration-300 transform hover:-translate-y-2 hover:bg-slate-300">
                 <a href="../Pages/descripcionDePelicula.html?id=${objeto.id}">
-                  <img class="w-72 h-auto my-3 mt-[30px] ml-[30px] rounded-3xl" src="${objeto.image}" alt="${objeto.title}">
+                  <img class="w-[400px] h-auto my-3 mt-[30px] rounded-3xl m-auto" src="${objeto.image}" alt="${objeto.title}">
                   <h1 class="font-bold">${objeto.title}</h1>
                   <h2 class="text-start">${objeto.tagline}</h2>
                   <p class="text-start">${objeto.overview}</p>
